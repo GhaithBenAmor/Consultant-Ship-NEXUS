@@ -1,0 +1,69 @@
+﻿<h1>Mettre à jour votre profil</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Titre</label>
+            <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                <option value=""></option>
+                <option value="Mr">Monsiuer</option>
+                <option value="Mrs">Madame</option>n>
+            </select>
+            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                <div *ngIf="f.title.errors.required">Titre requis *</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Nom</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">Nom requis *</div>
+            </div>
+        </div>
+        <div class="form-group col-5">
+            <label>Prénom</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Prénom requis *</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Adresse e-mail</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Adresse e-mail requis *</div>
+            <div *ngIf="f.email.errors.email">Adresse e-amil n'est pas valide</div>
+        </div>
+    </div>
+    <h3 class="pt-3">Changer le mot de passe</h3>
+    <p>Laisser vide pour conserver le même mot de passe</p>
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Mot de passe</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Mot de passe requis *</div>
+                <div *ngIf="f.password.errors.minlength">Le mot de passe doit être au moins de 6 caractères</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label>Confirmer votre mot de passe</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">Confirmation requis *</div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">les mots de passe ne sont pas identiques</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="loading" class="btn btn-primary mr-2">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Mettre à jour
+        </button>
+        <button type="button" (click)="onDelete()" [disabled]="deleting" class="btn btn-danger">
+            <span *ngIf="deleting" class="spinner-border spinner-border-sm mr-1"></span>
+            Supprimer
+        </button>
+        <a routerLink="../" href="" class="btn btn-link">Retour</a>
+    </div>
+</form>

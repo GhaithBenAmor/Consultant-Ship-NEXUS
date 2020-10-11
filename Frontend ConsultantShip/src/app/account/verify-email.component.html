@@ -1,0 +1,12 @@
+﻿<div style="background-color: rgb(0,0,0,0.6);color: white;">
+
+    <h3 class="card-header">Vérifier e-mail</h3>
+    <div class="card-body">
+        <div *ngIf="emailStatus == EmailStatus.Verifying">
+            Vérification ...
+        </div>
+        <div *ngIf="emailStatus == EmailStatus.Failed">
+            La vérification a échoué, vous pouvez également vérifier votre compte à l'aide du <a routerLink="forgot-password">page "mot de passe oublié"</a>.
+        </div>
+    </div>
+</div>

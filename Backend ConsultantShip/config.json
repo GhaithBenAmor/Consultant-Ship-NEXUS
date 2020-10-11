@@ -1,0 +1,20 @@
+﻿{
+    "database": {
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "15935746",
+        "database": "api"
+        
+    },
+    "secret": "b4fc3db5-2bcf-42bd-80e2-811269dbdeca",
+    "emailFrom": "test.com",
+    "smtpOptions": {
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "auth": {
+            "user": "molly.walter4@ethereal.email",
+            "pass": "yj5HnACuWmxVKMvDGX"
+        }
+    }
+}
